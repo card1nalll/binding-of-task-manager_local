@@ -1,0 +1,54 @@
+[gd_scene load_steps=7 format=3 uid="uid://c4r2er4a6x58m"]
+
+[ext_resource type="PackedScene" uid="uid://bn607pw17qiv3" path="res://player/player.tscn" id="1_gimx2"]
+[ext_resource type="PackedScene" uid="uid://bishnkva25jp8" path="res://photoshop.tscn" id="2_pgwmc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kwnag"]
+size = Vector2(1082, 26)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o24ip"]
+size = Vector2(20, 838)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1uhfr"]
+size = Vector2(20, 842)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_obfls"]
+size = Vector2(1092, 16)
+
+[node name="playground" type="Node2D"]
+
+[node name="player" parent="." instance=ExtResource("1_gimx2")]
+position = Vector2(458, 330)
+
+[node name="walltop" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="walltop"]
+position = Vector2(542, -8)
+shape = SubResource("RectangleShape2D_kwnag")
+
+[node name="wallleft" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="wallleft"]
+position = Vector2(0, 409)
+shape = SubResource("RectangleShape2D_o24ip")
+
+[node name="wallleft2" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="wallleft2"]
+position = Vector2(1072, 412)
+shape = SubResource("RectangleShape2D_1uhfr")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(536, 814)
+shape = SubResource("RectangleShape2D_obfls")
+
+[node name="photoshop2" parent="." instance=ExtResource("2_pgwmc")]
+position = Vector2(97, 295)
+
+[node name="photoshop" parent="." instance=ExtResource("2_pgwmc")]
+position = Vector2(612, 216)
+
+[node name="photoshop3" parent="." instance=ExtResource("2_pgwmc")]
+position = Vector2(709, 511)

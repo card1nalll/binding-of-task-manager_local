@@ -1,0 +1,86 @@
+[gd_scene load_steps=14 format=3 uid="uid://bishnkva25jp8"]
+
+[ext_resource type="Texture2D" uid="uid://b4l6hrqxbft6y" path="res://photoshop/sprite/After Walk from Maxime.png" id="1_25xvd"]
+[ext_resource type="Script" path="res://photoshop/scripts/photoshop.gd" id="1_eg3c1"]
+[ext_resource type="Script" path="res://states/state_machine.gd" id="3_xqgv1"]
+[ext_resource type="Script" path="res://states/enemy_idle.gd" id="4_pa03v"]
+[ext_resource type="Script" path="res://states/enemy_follow.gd" id="5_ytbp5"]
+[ext_resource type="Script" path="res://states/atack.gd" id="6_3w0k0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w02kg"]
+size = Vector2(46, 47)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_at485"]
+atlas = ExtResource("1_25xvd")
+region = Rect2(0, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_npbfh"]
+atlas = ExtResource("1_25xvd")
+region = Rect2(512, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1nhn2"]
+atlas = ExtResource("1_25xvd")
+region = Rect2(0, 512, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4x7lw"]
+atlas = ExtResource("1_25xvd")
+region = Rect2(512, 512, 512, 512)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_k53ag"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_at485")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_npbfh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1nhn2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4x7lw")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_62x2q"]
+radius = 29.0
+
+[node name="photoshop" type="CharacterBody2D" groups=["enemy"]]
+position = Vector2(256, 54)
+script = ExtResource("1_eg3c1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(14, 18.5)
+shape = SubResource("RectangleShape2D_w02kg")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(14, 15)
+scale = Vector2(0.117065, 0.117065)
+sprite_frames = SubResource("SpriteFrames_k53ag")
+animation = &"idle"
+frame_progress = 0.27423
+
+[node name="State Machine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
+script = ExtResource("3_xqgv1")
+initial_state = NodePath("follow")
+
+[node name="Idle" type="Node" parent="State Machine" node_paths=PackedStringArray("enemy")]
+script = ExtResource("4_pa03v")
+enemy = NodePath("../..")
+
+[node name="follow" type="Node" parent="State Machine" node_paths=PackedStringArray("enemy")]
+script = ExtResource("5_ytbp5")
+enemy = NodePath("../..")
+
+[node name="enemy_atack" type="Node" parent="State Machine"]
+script = ExtResource("6_3w0k0")
+
+[node name="enemy_hitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="enemy_hitbox"]
+position = Vector2(14, 19)
+shape = SubResource("CircleShape2D_62x2q")
