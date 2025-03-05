@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://c4r2er4a6x58m"]
+[gd_scene load_steps=8 format=3 uid="uid://c4r2er4a6x58m"]
 
 [ext_resource type="PackedScene" uid="uid://bn607pw17qiv3" path="res://player/player.tscn" id="1_gimx2"]
-[ext_resource type="PackedScene" uid="uid://bishnkva25jp8" path="res://photoshop.tscn" id="2_pgwmc"]
+[ext_resource type="PackedScene" uid="uid://bishnkva25jp8" path="res://photoshop/photoshop.tscn" id="2_pgwmc"]
+[ext_resource type="PackedScene" uid="uid://bobv7j0mqlmkm" path="res://adobafter/adobeafter.tscn" id="3_lyp30"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kwnag"]
 size = Vector2(1082, 26)
@@ -16,6 +17,9 @@ size = Vector2(20, 842)
 size = Vector2(1092, 16)
 
 [node name="playground" type="Node2D"]
+
+[node name="photoshop3" parent="." instance=ExtResource("2_pgwmc")]
+position = Vector2(268, 597)
 
 [node name="player" parent="." instance=ExtResource("1_gimx2")]
 position = Vector2(458, 330)
@@ -44,11 +48,10 @@ shape = SubResource("RectangleShape2D_1uhfr")
 position = Vector2(536, 814)
 shape = SubResource("RectangleShape2D_obfls")
 
-[node name="photoshop2" parent="." instance=ExtResource("2_pgwmc")]
-position = Vector2(97, 295)
-
 [node name="photoshop" parent="." instance=ExtResource("2_pgwmc")]
 position = Vector2(612, 216)
 
-[node name="photoshop3" parent="." instance=ExtResource("2_pgwmc")]
-position = Vector2(709, 511)
+[node name="photoshop2" parent="." instance=ExtResource("2_pgwmc")]
+position = Vector2(735, 396)
+
+[node name="adobeafter" parent="." instance=ExtResource("3_lyp30")]

@@ -1,7 +1,7 @@
 class_name photoshop
 extends CharacterBody2D
 
-@export var attack_damage := 10  
+@export var enemy_attack_damage := 40  
 @export var attack_cooldown := 1.5  
 
 var health = 100
@@ -25,8 +25,9 @@ func _on_enemy_hitbox_body_exited(body: Node2D) -> void:
 		player_in_atack_zone = false
 
 func deal_with_damage(damage: int):
-	health = health -20
+	health -= damage
 	print("Enemy took", damage, "damage! Current HP:", health)
 
 	if health <= 0:
+		print("enemy died")
 		queue_free()

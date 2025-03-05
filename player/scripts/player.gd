@@ -59,7 +59,7 @@ func _on_player_hitbox_body_exited(body: Node2D) -> void:
 
 func enemy_atack():
 	if enemy_in_atack_range and enemy_atack_cooldwon:
-		health -= 20
+		health -= enemy_in_atack_range.enemy_attack_damage
 		enemy_atack_cooldwon = false
 		attack_timer.start()
 		print("Player Health:", health)

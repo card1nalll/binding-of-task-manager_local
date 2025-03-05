@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b4l6hrqxbft6y"
-path="res://.godot/imported/After Walk from Maxime.png-cad3715294f4021415ad3a59d4707d3f.ctex"
+uid="uid://h73xobpg5cdf"
+path="res://.godot/imported/After Walk Damage from Maxime.png-3fadbfcc9a248c895ac70ab4934afe13.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://photoshop/sprite/After Walk from Maxime.png"
-dest_files=["res://.godot/imported/After Walk from Maxime.png-cad3715294f4021415ad3a59d4707d3f.ctex"]
+source_file="res://adobafter/sprite/After Walk Damage from Maxime.png"
+dest_files=["res://.godot/imported/After Walk Damage from Maxime.png-3fadbfcc9a248c895ac70ab4934afe13.ctex"]
 
 [params]
 

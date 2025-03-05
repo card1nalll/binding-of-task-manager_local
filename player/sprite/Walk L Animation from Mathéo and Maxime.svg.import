@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dko2m50skw70g"
-path="res://.godot/imported/Adobe After Attaque from Maxime Buchmann.png-06caa882a008d7eef0099656bccd2b7a.ctex"
+uid="uid://cwjojp41iwo5m"
+path="res://.godot/imported/Walk L Animation from Mathéo and Maxime.svg-20425a749689a4cc46a6247cda1c37f7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://photoshop/sprite/Adobe After Attaque from Maxime Buchmann.png"
-dest_files=["res://.godot/imported/Adobe After Attaque from Maxime Buchmann.png-06caa882a008d7eef0099656bccd2b7a.ctex"]
+source_file="res://player/sprite/Walk L Animation from Mathéo and Maxime.svg"
+dest_files=["res://.godot/imported/Walk L Animation from Mathéo and Maxime.svg-20425a749689a4cc46a6247cda1c37f7.ctex"]
 
 [params]
 
@@ -32,3 +32,6 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
+svg/scale=1.0
+editor/scale_with_editor_scale=false
+editor/convert_colors_with_editor_theme=false

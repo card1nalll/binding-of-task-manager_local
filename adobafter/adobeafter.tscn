@@ -1,0 +1,77 @@
+[gd_scene load_steps=12 format=3 uid="uid://bobv7j0mqlmkm"]
+
+[ext_resource type="Script" path="res://states/state_machine.gd" id="1_8l7cf"]
+[ext_resource type="Texture2D" uid="uid://dno7yl7gfbdd2" path="res://adobafter/sprite/After Walk from Maxime.png" id="1_n4wk7"]
+[ext_resource type="Script" path="res://states/enemy_follow_ae.gd" id="2_1hcmh"]
+[ext_resource type="Script" path="res://states/enemy_idle_ae.gd" id="3_bpfd2"]
+[ext_resource type="Script" path="res://states/enemy_idle.gd" id="3_fa4bc"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5kgdn"]
+atlas = ExtResource("1_n4wk7")
+region = Rect2(0, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_chmof"]
+atlas = ExtResource("1_n4wk7")
+region = Rect2(512, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i5h3g"]
+atlas = ExtResource("1_n4wk7")
+region = Rect2(0, 512, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ouv65"]
+atlas = ExtResource("1_n4wk7")
+region = Rect2(512, 512, 512, 512)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_oiq6w"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"death",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5kgdn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_chmof")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i5h3g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ouv65")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v3e3u"]
+size = Vector2(42, 47)
+
+[node name="adobeafter" type="CharacterBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(42, 54)
+scale = Vector2(0.124756, 0.124756)
+sprite_frames = SubResource("SpriteFrames_oiq6w")
+animation = &"idle"
+frame_progress = 0.886446
+script = ExtResource("3_fa4bc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(42, 56.5)
+shape = SubResource("RectangleShape2D_v3e3u")
+
+[node name="statemachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
+script = ExtResource("1_8l7cf")
+initial_state = NodePath("Follow")
+
+[node name="Idle" type="Node" parent="statemachine" node_paths=PackedStringArray("enemy")]
+script = ExtResource("3_bpfd2")
+enemy = NodePath("../..")
+
+[node name="Follow" type="Node" parent="statemachine" node_paths=PackedStringArray("enemy")]
+script = ExtResource("2_1hcmh")
+enemy = NodePath("../..")
