@@ -319,11 +319,11 @@ frame_progress = 1.0
 [node name="player_hitbox" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="player_hitbox"]
-position = Vector2(-1, -20)
+position = Vector2(-2, -21)
 shape = SubResource("CircleShape2D_5ssvr")
 
 [node name="atack_cooldwon" type="Timer" parent="."]
-wait_time = 1.393
+wait_time = 7.02
 
 [connection signal="body_entered" from="player_hitbox" to="." method="_on_player_hitbox_body_entered"]
 [connection signal="body_exited" from="player_hitbox" to="." method="_on_player_hitbox_body_exited"]
